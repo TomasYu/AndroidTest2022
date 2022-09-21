@@ -39,7 +39,7 @@ class ImageFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_image, container, false).also {
-            it.findViewById<ImageView>(R.id.dpi).apply {
+            it.findViewById<ImageView>(R.id.dpi)?.apply {
                 val bitmapDrawable = drawable as BitmapDrawable
                 Log.d(TAG,"size $tag ${bitmapDrawable.bitmap.allocationByteCount}")
 
