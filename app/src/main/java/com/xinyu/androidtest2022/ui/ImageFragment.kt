@@ -1,10 +1,13 @@
 package com.xinyu.androidtest2022.ui
 
+import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import com.xinyu.androidtest2022.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -35,7 +38,33 @@ class ImageFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_image, container, false)
+        return inflater.inflate(R.layout.fragment_image, container, false).also {
+            it.findViewById<ImageView>(R.id.mdpi).apply {
+                val bitmapDrawable = drawable as BitmapDrawable
+                Log.d(TAG,"size ${tag} ${bitmapDrawable.bitmap.allocationByteCount}")
+            }
+
+            it.findViewById<ImageView>(R.id.hdpi).apply {
+                val bitmapDrawable = drawable as BitmapDrawable
+                Log.d(TAG,"size ${tag} ${bitmapDrawable.bitmap.allocationByteCount}")
+            }
+
+            it.findViewById<ImageView>(R.id.xhdpi).apply {
+                val bitmapDrawable = drawable as BitmapDrawable
+                Log.d(TAG,"size ${tag} ${bitmapDrawable.bitmap.allocationByteCount}  width ${it.width} height ${it.height}")
+            }
+
+            it.findViewById<ImageView>(R.id.xxhdpi).apply {
+                val bitmapDrawable = drawable as BitmapDrawable
+                Log.d(TAG,"size ${tag} ${bitmapDrawable.bitmap.allocationByteCount}")
+            }
+            it.findViewById<ImageView>(R.id.xxxhdpi).apply {
+                val bitmapDrawable = drawable as BitmapDrawable
+                Log.d(TAG,"size ${tag} ${bitmapDrawable.bitmap.allocationByteCount}")
+            }
+
+
+        }
     }
 
     companion object {
@@ -56,5 +85,7 @@ class ImageFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+
+        private const val TAG = "ImageFragment"
     }
 }

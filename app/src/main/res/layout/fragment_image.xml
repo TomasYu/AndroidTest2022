@@ -1,14 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.ImageFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
 
-</FrameLayout>
+        <ImageView
+            android:id="@+id/xxxhdpi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/xxxhdpi"
+            android:tag="xxxhdpi"
+            />
+
+
+        <ImageView
+            android:id="@+id/xxhdpi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/xxhdpi"
+            android:tag="xxhdpi"
+            />
+
+        <ImageView
+            android:id="@+id/xhdpi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/xhdpi"
+            android:tag="xhdpi"
+            />
+
+
+        <ImageView
+            android:id="@+id/hdpi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/hdpi"
+            android:tag="hdpi"
+            />
+
+        <ImageView
+            android:id="@+id/mdpi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/mdpi"
+            android:tag="mdpi"
+            />
+
+    </LinearLayout>
+
+
+</ScrollView>
