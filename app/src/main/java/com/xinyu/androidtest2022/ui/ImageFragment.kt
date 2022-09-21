@@ -149,4 +149,6 @@ dpi560 api 22
 2022-09-21 17:22:09.273 14195-14195/com.xinyu.androidtest2022 D/ImageFragment: size xhdpi 3835200
 2022-09-21 17:22:09.273 14195-14195/com.xinyu.androidtest2022 D/ImageFragment: size xxhdpi 3220800
 2022-09-21 17:22:09.273 14195-14195/com.xinyu.androidtest2022 D/ImageFragment: size xxxhdpi 1811700
+
+https://blog.csdn.net/baidu_40389775/article/details/124112935
  */
