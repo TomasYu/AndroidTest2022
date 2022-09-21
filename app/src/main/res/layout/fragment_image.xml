@@ -11,22 +11,19 @@
         >
 
         <ImageView
-            android:id="@+id/xxxhdpi"
+            android:id="@+id/mdpi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/xxxhdpi"
-            android:tag="xxxhdpi"
+            android:src="@drawable/mdpi"
+            android:tag="mdpi"
             />
-
-
         <ImageView
-            android:id="@+id/xxhdpi"
+            android:id="@+id/hdpi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/xxhdpi"
-            android:tag="xxhdpi"
+            android:src="@drawable/hdpi"
+            android:tag="hdpi"
             />
-
         <ImageView
             android:id="@+id/xhdpi"
             android:layout_width="wrap_content"
@@ -35,21 +32,19 @@
             android:tag="xhdpi"
             />
 
-
         <ImageView
-            android:id="@+id/hdpi"
+            android:id="@+id/xxhdpi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/hdpi"
-            android:tag="hdpi"
+            android:src="@drawable/xxhdpi"
+            android:tag="xxhdpi"
             />
-
         <ImageView
-            android:id="@+id/mdpi"
+            android:id="@+id/xxxhdpi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/mdpi"
-            android:tag="mdpi"
+            android:src="@drawable/xxxhdpi"
+            android:tag="xxxhdpi"
             />
 
     </LinearLayout>

@@ -41,26 +41,26 @@ class ImageFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_image, container, false).also {
             it.findViewById<ImageView>(R.id.mdpi).apply {
                 val bitmapDrawable = drawable as BitmapDrawable
-                Log.d(TAG,"size ${tag} ${bitmapDrawable.bitmap.allocationByteCount}")
+                Log.d(TAG,"size $tag ${bitmapDrawable.bitmap.allocationByteCount}")
             }
 
             it.findViewById<ImageView>(R.id.hdpi).apply {
                 val bitmapDrawable = drawable as BitmapDrawable
-                Log.d(TAG,"size ${tag} ${bitmapDrawable.bitmap.allocationByteCount}")
+                Log.d(TAG,"size $tag ${bitmapDrawable.bitmap.allocationByteCount}")
             }
 
             it.findViewById<ImageView>(R.id.xhdpi).apply {
                 val bitmapDrawable = drawable as BitmapDrawable
-                Log.d(TAG,"size ${tag} ${bitmapDrawable.bitmap.allocationByteCount}  width ${it.width} height ${it.height}")
+                Log.d(TAG,"size $tag ${bitmapDrawable.bitmap.allocationByteCount}  width ${it.width} height ${it.height}")
             }
 
             it.findViewById<ImageView>(R.id.xxhdpi).apply {
                 val bitmapDrawable = drawable as BitmapDrawable
-                Log.d(TAG,"size ${tag} ${bitmapDrawable.bitmap.allocationByteCount}")
+                Log.d(TAG,"size $tag ${bitmapDrawable.bitmap.allocationByteCount}")
             }
             it.findViewById<ImageView>(R.id.xxxhdpi).apply {
                 val bitmapDrawable = drawable as BitmapDrawable
-                Log.d(TAG,"size ${tag} ${bitmapDrawable.bitmap.allocationByteCount}")
+                Log.d(TAG,"size $tag ${bitmapDrawable.bitmap.allocationByteCount}")
             }
 
 
@@ -89,3 +89,17 @@ class ImageFragment : Fragment() {
         private const val TAG = "ImageFragment"
     }
 }
+/**
+ *
+ 在mdpi的机器上 mdpi正常显示 其他都会缩小
+1 - 1.5 - 2 - 3 - 4
+2022-09-21 13:01:19.729 10545-10545/com.xinyu.androidtest2022 D/ImageFragment: size mdpi 3835200
+2022-09-21 13:01:19.729 10545-10545/com.xinyu.androidtest2022 D/ImageFragment: size hdpi 1705600
+2022-09-21 13:01:19.730 10545-10545/com.xinyu.androidtest2022 D/ImageFragment: size xhdpi 960000  width 0 height 0
+2022-09-21 13:01:19.730 10545-10545/com.xinyu.androidtest2022 D/ImageFragment: size xxhdpi 425600
+2022-09-21 13:01:19.730 10545-10545/com.xinyu.androidtest2022 D/ImageFragment: size xxxhdpi 240000
+
+https://blog.csdn.net/zhujiangtaotaise/article/details/112907477
+
+
+ */
