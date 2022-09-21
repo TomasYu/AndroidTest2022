@@ -39,6 +39,12 @@ class ImageFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_image, container, false).also {
+            it.findViewById<ImageView>(R.id.dpi).apply {
+                val bitmapDrawable = drawable as BitmapDrawable
+                Log.d(TAG,"size $tag ${bitmapDrawable.bitmap.allocationByteCount}")
+
+            }
+
             it.findViewById<ImageView>(R.id.mdpi).apply {
                 val bitmapDrawable = drawable as BitmapDrawable
                 Log.d(TAG,"size $tag ${bitmapDrawable.bitmap.allocationByteCount}")
@@ -47,11 +53,12 @@ class ImageFragment : Fragment() {
             it.findViewById<ImageView>(R.id.hdpi).apply {
                 val bitmapDrawable = drawable as BitmapDrawable
                 Log.d(TAG,"size $tag ${bitmapDrawable.bitmap.allocationByteCount}")
+//                Log.d(TAG,"size $tag ${bitmapDrawable.bitmap.byteCount}")
             }
 
             it.findViewById<ImageView>(R.id.xhdpi).apply {
                 val bitmapDrawable = drawable as BitmapDrawable
-                Log.d(TAG,"size $tag ${bitmapDrawable.bitmap.allocationByteCount}  width ${it.width} height ${it.height}")
+                Log.d(TAG,"size $tag ${bitmapDrawable.bitmap.allocationByteCount}  ")
             }
 
             it.findViewById<ImageView>(R.id.xxhdpi).apply {
@@ -61,6 +68,9 @@ class ImageFragment : Fragment() {
             it.findViewById<ImageView>(R.id.xxxhdpi).apply {
                 val bitmapDrawable = drawable as BitmapDrawable
                 Log.d(TAG,"size $tag ${bitmapDrawable.bitmap.allocationByteCount}")
+//                post {
+//                    Log.d(TAG,"size $tag ${bitmapDrawable.bitmap.allocationByteCount} width $width height $height")
+//                }
             }
 
 
@@ -91,7 +101,7 @@ class ImageFragment : Fragment() {
 }
 /**
  *
- 在mdpi的机器上 mdpi正常显示 其他都会缩小
+ 在mdpi的机器上 mdpi正常显示 其他都会缩小  占用内存也会减少
 1 - 1.5 - 2 - 3 - 4
 2022-09-21 13:01:19.729 10545-10545/com.xinyu.androidtest2022 D/ImageFragment: size mdpi 3835200
 2022-09-21 13:01:19.729 10545-10545/com.xinyu.androidtest2022 D/ImageFragment: size hdpi 1705600
@@ -101,5 +111,42 @@ class ImageFragment : Fragment() {
 
 https://blog.csdn.net/zhujiangtaotaise/article/details/112907477
 
+计算公式：
+width * 当前手机dpi/图片文件夹dpi * height * 当前手机dpi/图片文件夹dpi * 4
+比如560 的dpi  显示的图片应该是采用xxhdpi
+width*560/480*height*560/480*4
 
+
+
+
+图片的占用内存 和显示大小没有关系  举个例子： 你的图片200m 你写死的宽高是100px 能显示吗？ 该OOM还是OOM
+
+手机density : 420  图片占用内存如下： 看不懂啊  怎么会   好像在高版本不会有这个问题了
+2022-09-21 15:18:09.335 29223-29223/com.xinyu.androidtest2022 D/ImageFragment: size mdpi 3835200
+2022-09-21 15:18:09.335 29223-29223/com.xinyu.androidtest2022 D/ImageFragment: size hdpi 3835200
+
+2022-09-21 15:18:09.335 29223-29223/com.xinyu.androidtest2022 D/ImageFragment: size xhdpi 3835200
+
+2022-09-21 15:18:09.335 29223-29223/com.xinyu.androidtest2022 D/ImageFragment: size xxhdpi 3220800
+2022-09-21 15:18:09.335 29223-29223/com.xinyu.androidtest2022 D/ImageFragment: size xxxhdpi 1811700
+
+当前dpi 是 440   440 / 480
+
+
+dpi560 api 22
+2022-09-21 17:09:21.511 5982-5982/com.xinyu.androidtest2022 D/ImageFragment: size dpi 46989600
+2022-09-21 17:09:21.511 5982-5982/com.xinyu.androidtest2022 D/ImageFragment: size mdpi 46989600
+2022-09-21 17:09:21.512 5982-5982/com.xinyu.androidtest2022 D/ImageFragment: size hdpi 20876800
+2022-09-21 17:09:21.512 5982-5982/com.xinyu.androidtest2022 D/ImageFragment: size xhdpi 11743200
+2022-09-21 17:09:21.512 5982-5982/com.xinyu.androidtest2022 D/ImageFragment: size xxhdpi 5219200
+2022-09-21 17:09:21.512 5982-5982/com.xinyu.androidtest2022 D/ImageFragment: size xxxhdpi 2935800
+
+ 30修复了  放在低dpi目录下不会增长了   但是放到高目录图片还是会缩小
+
+022-09-21 17:22:09.273 14195-14195/com.xinyu.androidtest2022 D/ImageFragment: size dpi 3835200
+2022-09-21 17:22:09.273 14195-14195/com.xinyu.androidtest2022 D/ImageFragment: size mdpi 3835200
+2022-09-21 17:22:09.273 14195-14195/com.xinyu.androidtest2022 D/ImageFragment: size hdpi 3835200
+2022-09-21 17:22:09.273 14195-14195/com.xinyu.androidtest2022 D/ImageFragment: size xhdpi 3835200
+2022-09-21 17:22:09.273 14195-14195/com.xinyu.androidtest2022 D/ImageFragment: size xxhdpi 3220800
+2022-09-21 17:22:09.273 14195-14195/com.xinyu.androidtest2022 D/ImageFragment: size xxxhdpi 1811700
  */

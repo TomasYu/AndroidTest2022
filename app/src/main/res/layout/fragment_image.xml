@@ -11,6 +11,14 @@
         >
 
         <ImageView
+            android:id="@+id/dpi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/dpi"
+            android:tag="dpi"
+            />
+
+        <ImageView
             android:id="@+id/mdpi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

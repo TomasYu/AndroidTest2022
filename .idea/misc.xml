@@ -6,6 +6,8 @@
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.26" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.16614583333333333" />
         <entry key="app/src/main/res/layout/fragment_image.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_image2.xml" value="0.18125" />
+        <entry key="app/src/main/res/layout/fragment_image3.xml" value="0.1" />
       </map>
     </option>
   </component>
@@ -14,5 +16,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.1" />
+      </ProjectState>
+    </option>
   </component>
 </project>
